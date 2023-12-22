@@ -389,7 +389,7 @@ static void pci_free_consistent(struct pci_dev *pdev, size_t size, void *cpu_add
 	kfree(cpu_addr);
 }
 
-//pci_alloc_consistent ×îºóÒ»¸ö²ÎÊýÊÇDMAµØÖ·£¬·µ»ØµÄÊÇ·ÇcacheµÄcpuµØÖ·¡£
+//pci_alloc_consistent æœ€åŽä¸€ä¸ªå‚æ•°æ˜¯DMAåœ°å€ï¼Œè¿”å›žçš„æ˜¯éžcacheçš„cpuåœ°å€ã€‚
 static void *pci_alloc_consistent(void *hwdev, size_t size,
 		               dma_addr_t * dma_handle)
 {
@@ -1970,7 +1970,7 @@ static struct pci_device_id *ste_pci_id=0;
 /*
  * Check if a device is an 82557.
  */
-static void ste_start(struct ifnet *ifp);
+void ste_start(struct ifnet *ifp);
 static int
 ste_match(parent, match, aux)
 	struct device *parent;
@@ -2123,7 +2123,7 @@ ste_attach(parent, self, aux)
 
 
 
-static void ste_start(struct ifnet *ifp)
+void ste_start(struct ifnet *ifp)
 {
 	struct net_device *sc = ifp->if_softc;
 	struct mbuf *mb_head;		

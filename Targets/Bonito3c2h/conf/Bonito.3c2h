@@ -51,7 +51,7 @@ option		BOOT_PARAM
 option      BONITO_33M
 #option      BONITO_25M
 #option      BONITO_50M
-
+option       DDR_FREQ=666
 #select     	amd_2h
 select     	loongson2h
 

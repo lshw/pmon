@@ -1249,7 +1249,7 @@ tgt_poweroff()
 	while(1);
 }
 #else
-static void delay(int j)
+void delay(int j)
 {
 	volatile int i, k;
 
