@@ -3,7 +3,7 @@ S:=$(shell cd ../../../..; pwd)
 endif
 TARGET= ${S}/Targets/Bonito2f1a
 SUBTARGET?=Bonito
-CPPFLAGS=-mips3 -msoft-float
+CPPFLAGS=-mips3 -msoft-float -fcommon
 
 %OBJS
 

@@ -3,7 +3,7 @@ S:=$(shell cd ../../../..; pwd)
 endif
 TARGET= ${S}/Targets/LS232_sm502
 SUBTARGET?=ls232
-CPPFLAGS=-mips2 -msoft-float
+CPPFLAGS=-mips2 -msoft-float -fcommon
 
 %OBJS
 
