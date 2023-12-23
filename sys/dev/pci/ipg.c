@@ -382,7 +382,7 @@ static void pci_free_consistent(struct pci_dev *pdev, size_t size, void *cpu_add
 	kfree(UNCACHED_TO_CACHED(cpu_addr));
 }
 
-//pci_alloc_consistent ×îºóÒ»¸ö²ÎÊýÊÇDMAµØÖ·£¬·µ»ØµÄÊÇ·ÇcacheµÄcpuµØÖ·¡£
+//pci_alloc_consistent æœ€åŽä¸€ä¸ªå‚æ•°æ˜¯DMAåœ°å€ï¼Œè¿”å›žçš„æ˜¯éžcacheçš„cpuåœ°å€ã€‚
 static void *pci_alloc_consistent(void *hwdev, size_t size,
 		               dma_addr_t * dma_handle)
 {
@@ -3738,7 +3738,7 @@ static void ipg_nic_txcleanup(struct net_device *ipg_ethernet_device)
 	return;
 }
 
-static void ipg_nic_txfree(struct net_device *ipg_ethernet_device)
+void ipg_nic_txfree(struct net_device *ipg_ethernet_device)
 {
         /* Free all transmit buffers which have already been transfered
          * via DMA to the IPG.
@@ -3913,7 +3913,7 @@ static int init_tfdlist(struct net_device *ipg_ethernet_device)
 	return 0;
 }
 
-static int ipg_get_rxbuff(struct net_device *ipg_ethernet_device, int rfd)
+int ipg_get_rxbuff(struct net_device *ipg_ethernet_device, int rfd)
 {
 	/* Create a receive buffer within system memory and update
 	 * NIC private structure appropriately.
@@ -4769,7 +4769,7 @@ static int ipg_nic_rx(struct net_device *ipg_ethernet_device)
 	return 0;
 }
 #endif
-static int ipg_nic_rxrestore(struct net_device *ipg_ethernet_device)
+int ipg_nic_rxrestore(struct net_device *ipg_ethernet_device)
 {
 	/* restore used receive buffers. */
 
@@ -4909,7 +4909,7 @@ ipg_stats_type* ipg_nic_get_stats(struct net_device *ipg_ethernet_device)
 	return &sp->stats;
 }
 #endif
-static void ipg_nic_set_multicast_list(struct net_device *ipg_ethernet_device)
+void ipg_nic_set_multicast_list(struct net_device *ipg_ethernet_device)
 {
 	/* determine and configure multicast operation and set
 	 * receive mode for ipg.
@@ -5007,7 +5007,7 @@ static void ipg_nic_set_multicast_list(struct net_device *ipg_ethernet_device)
    them.  select the endian-ness that results in minimal calculations.
 */
 unsigned const ethernet_polynomial_le = 0xedb88320u;
-static unsigned ether_crc_le(int length, unsigned char *data)
+unsigned ether_crc_le(int length, unsigned char *data)
 {
         unsigned int crc = 0xffffffff;  /* initial value. */
         while(--length >= 0) {
@@ -5356,7 +5356,7 @@ static void write_eeprom(struct net_device *ipg_ethernet_device, unsigned int ee
 }
 
 /* Set LED_Mode JES20040127EEPROM */
-static void Set_LED_Mode(struct net_device *ipg_ethernet_device)
+void Set_LED_Mode(struct net_device *ipg_ethernet_device)
 {
    u32 LED_Mode_Value;
    unsigned long	baseaddr;	
@@ -5385,7 +5385,7 @@ static void Set_LED_Mode(struct net_device *ipg_ethernet_device)
 }
 
 /* Set PHYSet JES20040127EEPROM */
-static void Set_PHYSet(struct net_device *ipg_ethernet_device)
+void Set_PHYSet(struct net_device *ipg_ethernet_device)
 {
    int PHYSet_Value;
    unsigned long	baseaddr;	
