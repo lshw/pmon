@@ -4970,7 +4970,7 @@ void ipg_nic_set_multicast_list(struct net_device *ipg_ethernet_device)
 	     mc_list_ptr = mc_list_ptr->next)
 	{
 		/* calculate crc result for each multicast address. */
-		hashindex = (int)ether_crc_le(ETH_ALEN, mc_list_ptr->dmi_addr);
+		hashindex = ether_crc_le(ETH_ALEN, mc_list_ptr->dmi_addr);
 
 		/* use only the least significant 6 bits. */
 		hashindex = hashindex & 0x3f;
@@ -5007,7 +5007,7 @@ void ipg_nic_set_multicast_list(struct net_device *ipg_ethernet_device)
    them.  select the endian-ness that results in minimal calculations.
 */
 unsigned const ethernet_polynomial_le = 0xedb88320u;
-unsigned ether_crc_le(int length, unsigned char *data)
+int ether_crc_le(int length, unsigned char *data)
 {
         unsigned int crc = 0xffffffff;  /* initial value. */
         while(--length >= 0) {
