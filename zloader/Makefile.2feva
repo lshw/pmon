@@ -4,3 +4,4 @@ START=start.o
 MEMSIZE=128
 
 include Makefile.inc
+ZLOADER_OPTIONS=-mips3
