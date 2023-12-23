@@ -792,7 +792,7 @@ static void pci_free_consistent(struct pci_dev *pdev, size_t size, void *cpu_add
 	kfree(UNCACHED_TO_CACHED(cpu_addr));
 }
 
-//pci_alloc_consistent ×îºóÒ»¸ö²ÎÊıÊÇDMAµØÖ·£¬·µ»ØµÄÊÇ·ÇcacheµÄcpuµØÖ·¡£
+//pci_alloc_consistent æœ€åä¸€ä¸ªå‚æ•°æ˜¯DMAåœ°å€ï¼Œè¿”å›çš„æ˜¯écacheçš„cpuåœ°å€ã€‚
 static void *pci_alloc_consistent(void *hwdev, size_t size,
 		               dma_addr_t * dma_handle)
 {
@@ -1044,7 +1044,7 @@ static int pci_resource_len(struct pci_dev *pdev,int bar)
     return rv?0:size;
 }
 
-static inline int netif_carrier_ok(struct net_device *dev)
+inline int netif_carrier_ok(struct net_device *dev)
 {
     return dev->state&1;
 }
