@@ -2335,7 +2335,7 @@ static long long ste_read_mac(struct net_device *nic)
         long long mac_tmp = 0;
         unsigned short u16tmp;
         struct netdev_private *np = netdev_priv(mynic_ste);
-        struct net_device *nic = mynic_ste;
+        nic = &mynic_ste;
         void  *ioaddr = np->base;
 
         for (i = 0; i < 3; i++) {
